@@ -22,8 +22,6 @@ import Menu from '@material-ui/icons/Menu';
 // core components
 import styles from './HeaderStyle';
 
-//const useStyles = makeStyles()
-
 // [*] change color for Navbar
 type color =
 	| 'primary'
@@ -50,6 +48,8 @@ export interface NavBarProps {
 	absolute?: boolean;
 	changeColorOnScroll?: changeColorOnScroll;
 }
+
+// const classNames = require('classnames');
 
 const useStyles = makeStyles(styles);
 

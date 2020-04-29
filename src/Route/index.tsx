@@ -4,9 +4,14 @@ import React, { useContext } from 'react';
 import { BrowserRouter, Switch, Redirect, Route } from 'react-router-dom';
 import { StoreContext } from '../context/StoreContext';
 //import { StoreContext } from './context/StoreContext';
+type router = {
+	href: string;
+	component: React.ReactChild;
+	isPrivate: boolean;
+};
 
 export interface RoutesProps {
-	routes: any;
+	routes: [router];
 }
 
 const Routes: React.SFC<RoutesProps> = props => {
@@ -15,7 +20,7 @@ const Routes: React.SFC<RoutesProps> = props => {
 	return (
 		<BrowserRouter>
 			<Switch>
-				{routes.map((ele: any, index: number) => {
+				{routes.map((ele, index: number) => {
 					if (ele.isPrivate) {
 						return (
 							<Route

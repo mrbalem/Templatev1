@@ -29,16 +29,17 @@ type size = 'sm' | 'lg';
 
 export interface CustomButtonsProps {
 	color: color;
-	round: boolean;
+	round?: boolean;
 	children: React.ReactChild;
-	fullWidth: boolean;
-	disabled: boolean;
-	simple: boolean;
+	fullWidth?: boolean;
+	disabled?: boolean;
+	simple?: boolean;
 	size: size;
-	block: boolean;
-	link: boolean;
-	justIcon: boolean;
-	className: any;
+	block?: boolean;
+	link?: boolean;
+	justIcon?: boolean;
+	onclick?: () => void;
+	className?: any;
 }
 
 const makeComponentStyles = makeStyles(() => ({
@@ -47,8 +48,6 @@ const makeComponentStyles = makeStyles(() => ({
 
 const CustomButtons: React.SFC<CustomButtonsProps> = props => {
 	const classes: any = makeComponentStyles();
-	const refre = React.createRef();
-
 	const {
 		color,
 		round,
@@ -59,9 +58,9 @@ const CustomButtons: React.SFC<CustomButtonsProps> = props => {
 		size,
 		block,
 		link,
+		onclick,
 		justIcon,
-		className,
-		...rest
+		className
 	} = props;
 
 	const btnClasses = classNames({
@@ -78,7 +77,7 @@ const CustomButtons: React.SFC<CustomButtonsProps> = props => {
 		[className]: className
 	});
 	return (
-		<Button {...rest} className={btnClasses}>
+		<Button onClick={onclick} className={btnClasses}>
 			{children}
 		</Button>
 	);
