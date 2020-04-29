@@ -46,6 +46,45 @@ const makeComponentStyles = makeStyles(() => ({
 	...buttonStyle
 }));
 
+export const RegularButon = React.forwardRef((props: any, ref) => {
+	const {
+		color,
+		round,
+		children,
+		fullWidth,
+		disabled,
+		simple,
+		size,
+		block,
+		link,
+		justIcon,
+		className,
+		...rest
+	} = props;
+
+	const classes: any = makeComponentStyles();
+
+	const btnClasses: any = classNames({
+		[classes.button]: true,
+		[classes[size]]: size,
+		[classes[color]]: color,
+		[classes.round]: round,
+		[classes.fullWidth]: fullWidth,
+		[classes.disabled]: disabled,
+		[classes.simple]: simple,
+		[classes.block]: block,
+		[classes.link]: link,
+		[classes.justIcon]: justIcon,
+		[className]: className
+	});
+
+	return (
+		<Button {...rest} ref={ref} className={btnClasses}>
+			{children}
+		</Button>
+	);
+});
+
 const CustomButtons: React.SFC<CustomButtonsProps> = props => {
 	const classes: any = makeComponentStyles();
 	const {

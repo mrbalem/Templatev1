@@ -5,6 +5,7 @@ import { Navbar } from './Layout';
 import Home from './Views/Home';
 import { ListItem } from '@material-ui/core';
 import CustomButtons from './components/CustomButton';
+import CustomDropdown from './components/CustomDropdown';
 
 type router = {
 	href: string;
@@ -25,19 +26,19 @@ const Logo = () => (
 	</div>
 );
 
-const LeftIten = [
-	<ListItem>
-		<CustomButtons size='sm' color='transparent'>
-			button
-		</CustomButtons>
-	</ListItem>,
+// const LeftIten = [
+// 	<ListItem>
+// 		<CustomButtons size='sm' color='transparent'>
+// 			button
+// 		</CustomButtons>
+// 	</ListItem>,
 
-	<ListItem>
-		<CustomButtons size='sm' color='danger'>
-			button
-		</CustomButtons>
-	</ListItem>
-];
+// 	<ListItem>
+// 		<CustomButtons size='sm' color='danger'>
+// 			button
+// 		</CustomButtons>
+// 	</ListItem>
+// ];
 
 const RoutesList: [router] = [
 	{
@@ -49,6 +50,9 @@ const RoutesList: [router] = [
 					brand={<Logo />}
 					rightLinks={
 						<ListItem>
+							<CustomButtons size='sm' color='success'>
+								Iniciar sesión
+							</CustomButtons>
 							<CustomButtons size='sm' color='success'>
 								Iniciar sesión
 							</CustomButtons>
